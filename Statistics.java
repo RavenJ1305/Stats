@@ -70,4 +70,36 @@ public class Statistics {
         return deviation;
     }
 
+    public double variance(int[] list){
+        return 0;
+    }
+
+    public double permutation(int[] list){
+        return 0;
+    }
+
+    public double combination(int[] list){
+        return 0;
+    }
+
+    public int union(int[] list){
+        return 0;
+    }
+
+    public int intersection(int[] list){
+        return 0;
+    }
+
+    public int compliment(int[] list){
+        return 0;
+    }
+
+    public void result(int[] list){
+        System.out.println();
+        System.out.println("The mean of this list is: " + mean(list));
+        System.out.println("The median of this list is: " + median(list));
+        System.out.println("The mode of this list is: " + mode(list));
+        System.out.println("The standard deviation of this list is: " + stdDevi(list));
+    }
+
 }
