@@ -100,6 +100,8 @@ public class Statistics {
         System.out.println("The median of this list is: " + median(list));
         System.out.println("The mode of this list is: " + mode(list));
         System.out.println("The standard deviation of this list is: " + stdDevi(list));
+        //System.out.println("The variance of this list is: " + variance(list));
+        
     }
 
 }
