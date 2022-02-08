@@ -101,7 +101,10 @@ public class Statistics {
         System.out.println("The mode of this list is: " + mode(list));
         System.out.println("The standard deviation of this list is: " + stdDevi(list));
         
-        
+    }
+
+    public void result2(int[] list, int[] list2){
+
     }
 
 }
