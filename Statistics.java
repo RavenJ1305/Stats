@@ -104,7 +104,7 @@ public class Statistics {
     }
 
     public void result2(int[] list, int[] list2){
-        return 0;
+        
     }
 
 }
