@@ -89,7 +89,7 @@ public class Statistics {
             union.add(listA.get(i));
         }
         for(int i=0; i< listB.size(); i++){
-            if(union.contains(listB.get(i)){
+            if(union.contains(listB.get(i))){
                 union.add(listB.get(i));
             }
         }
