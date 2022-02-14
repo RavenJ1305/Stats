@@ -82,10 +82,16 @@ public class Statistics {
         return 0;
     }
 
-    public int union(int[] list){
-        return 0;
+    public int[] union(int[] listA, int[] listB){
+        int counter = 0;
+        int[] union = new int[listA.length + listB.length];
+        for(int i=0; i < listA.length || i < listB.length; i++){
+            for(int j=0; j < union.length; j++){
+                union[j] = listA[j];
+            }
+        }
+        return union;
     }
-
     public int intersection(int[] list){
         return 0;
     }
