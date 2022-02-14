@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 public class Statistics {
 
     public double mean(int[] list){
@@ -82,12 +83,14 @@ public class Statistics {
         return 0;
     }
 
-    public int[] union(int[] listA, int[] listB){
-        int counter = 0;
-        int[] union = new int[listA.length + listB.length];
-        for(int i=0; i < listA.length || i < listB.length; i++){
-            for(int j=0; j < union.length; j++){
-                union[j] = listA[j];
+    public ArrayList union(ArrayList listA, ArrayList listB){
+        ArrayList union = new ArrayList();
+        for(int i=0; i < listA.size(); i++){
+            union.add(listA.get(i));
+        }
+        for(int i=0; i< listB.size(); i++){
+            if(union.contains(listB.get(i)){
+                union.add(listB.get(i));
             }
         }
         return union;
