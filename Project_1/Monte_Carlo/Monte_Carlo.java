@@ -1,6 +1,5 @@
 package Monte_Carlo;
 import java.util.*;
-import java.io.*;
 
 public class Monte_Carlo {
     Random rand = new Random();
