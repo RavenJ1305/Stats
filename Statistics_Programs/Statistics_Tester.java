@@ -7,14 +7,16 @@ public class Statistics_Tester {
         int listB[] = {1, 2, 3, 4, 5, 6};
         s1.result(listA);
         s1.result2(listA, listB);
-        ArrayList listC = new ArrayList();
+        ArrayList<Integer> listC = new ArrayList<>();
         listC.add(1);
-        listC.add(3);
+        listC.add(2);
         listC.add(5);
-        ArrayList listD = new ArrayList();
+        ArrayList<Integer> listD = new ArrayList<>();
         listD.add(2);
         listD.add(4);
         listD.add(6);
-        s1.union(listC, listD);
+        System.out.println(s1.union(listC, listD));
+        System.out.println(s1.intersection(listC, listD));
+        System.out.println(s1.compliment(listC));
     }
 }
