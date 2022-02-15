@@ -2,6 +2,14 @@ import java.util.Arrays;
 import java.util.ArrayList;
 public class Statistics {
 
+    public ArrayList<Integer> convert(int[] list){
+        ArrayList<Integer> converted = new ArrayList<>();
+        for(int i = 0; i < list.length; i++){
+            converted.add(list[i]);
+        }
+        return converted;
+    }
+    
     public double mean(int[] list){
         double avg = 0;
         int i;
@@ -15,6 +23,7 @@ public class Statistics {
             avg = avg + list[i];
         
         avg = avg / arraySize;
+        
         return avg;
     }
 
@@ -68,6 +77,7 @@ public class Statistics {
 
         double var = (double)(sum / (arraySize - 1));
         deviation = Math.sqrt(var);
+
         return deviation;
     }
 
@@ -87,6 +97,7 @@ public class Statistics {
         }
 
         double var = (double)(sum / (arraySize - 1));
+
         return var;
     }
 
@@ -105,50 +116,69 @@ public class Statistics {
         return factorial(n)/((factorial(r))*(factorial(n-r)));
     }
 
-    public ArrayList<Integer> union(ArrayList<Integer> listA, ArrayList<Integer> listB){
+    public ArrayList<Integer> union(int[] listA, int[] listB){
         ArrayList<Integer> union = new ArrayList<>();
-        for(int i=0; i < listA.size(); i++){
-            union.add(listA.get(i));
+        ArrayList<Integer> listC = new ArrayList<>();
+        ArrayList<Integer> listD = new ArrayList<>();
+        listC = convert(listA);
+        listD = convert(listB);
+
+        for(int i=0; i < listC.size(); i++){
+            if(!union.contains(listC.get(i))){
+                union.add(listC.get(i));
+            }
         }
-        for(int i=0; i< listB.size(); i++){
-            if(!union.contains(listB.get(i))){
-                union.add(listB.get(i));
+
+        for(int i=0; i< listD.size(); i++){
+            if(!union.contains(listD.get(i))){
+                union.add(listD.get(i));
             }
         }
         return union;
     }
-    public ArrayList<Integer> intersection(ArrayList<Integer> listA, ArrayList<Integer> listB){
-        ArrayList<Integer> intersect = new ArrayList<>();
 
-        for(int i=0; i < listA.size(); i++){
-            if(listB.contains(listA.get(i))){
-                intersect.add(listA.get(i));
+    public ArrayList<Integer> intersection(int[] listA, int[] listB){
+        ArrayList<Integer> intersect = new ArrayList<>();
+        ArrayList<Integer> listC = new ArrayList<>();
+        ArrayList<Integer> listD = new ArrayList<>();
+        listC = convert(listA);
+        listD = convert(listB);
+
+        for(int i=0; i < listC.size(); i++){
+            if(listD.contains(listC.get(i))){
+                if(!intersect.contains(listC.get(i))){
+                    intersect.add(listC.get(i));
+                }
             }
         }
         return intersect;
     }
 
-    public ArrayList<Integer> compliment(ArrayList<Integer> list){
+    public ArrayList<Integer> compliment(int[] list){
         ArrayList<Integer> out = new ArrayList<>();
+        ArrayList<Integer> listA = new ArrayList<>();
+        listA = convert(list);
         int[] preSet = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
         for(int i = 0; i < preSet.length; i++){
-            if(!list.contains(preSet[i])){
+            if(!listA.contains(preSet[i])){
                 out.add(preSet[i]);
             }
         }
         return out;
     }
 
-    public void result(int[] list){
+    public void result(int[] listA, int[] listB, double n, double r){
         System.out.println();
-        System.out.println("The mean of this list is: " + mean(list));
-        System.out.println("The median of this list is: " + median(list));
-        System.out.println("The mode of this list is: " + mode(list));
-        System.out.println("The standard deviation of this list is: " + stdDevi(list));
+        System.out.println("The mean of listA is: " + mean(listA));
+        System.out.println("The median of listA is: " + median(listA));
+        System.out.println("The mode of listA is: " + mode(listA));
+        System.out.println("The standard deviation of listA is: " + stdDevi(listA));
+        System.out.println("The variance of listA is: " + variance(listA));
+        System.out.println("The permutation of variable n and variable r is: " + permutation(n, r));
+        System.out.println("The combinationn of variable n and variable r is: " + combination(n, r));
+        System.out.println("The union of listA and listB is: " + union(listA, listB));
+        System.out.println("The intersection of listA and listB is: " + intersection(listA, listB));
+        System.out.println("The compliment of listA compared to the preset list is: " + compliment(listA));
     }
-
-    public void result2(int[] list, int[] list2){
-        
-    }
-
 }
