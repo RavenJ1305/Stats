@@ -46,9 +46,16 @@ public class Statistics {
             if(count > highCount){
                 highCount = count;
                 most = list[i];
+            }else if(count == highCount){
+                most = 0;
             }
         }
-        return most;
+        if(most == 0){
+            System.out.println("There is no mode for this list.");
+            return most;
+        }else{
+            return most;
+        }
     }
 
     public double stdDevi(int[] list){
@@ -90,12 +97,19 @@ public class Statistics {
         return var;
     }
 
-    public double permutation(int[] list){
-        return 0;
+    public double factorial(double a){
+        if(a == 0){
+            return 1;
+        }
+        return a*factorial(a-1);
     }
 
-    public double combination(int[] list){
-        return 0;
+    public double permutation(double n, double r){
+        return (factorial(n)/(factorial(n-r)));
+    }
+
+    public double combination(double n, double r){
+        return factorial(n)/((factorial(r))*(factorial(n-r)));
     }
 
     public ArrayList<Integer> union(ArrayList<Integer> listA, ArrayList<Integer> listB){
