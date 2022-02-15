@@ -40,15 +40,12 @@ public class Statistics {
         for(i = 0; i < arraySize; i++){
             int count = 0;
             for(j = 0; j < arraySize; j++){
-                if(list[j] == list[i])
+                if(list[i] == list[j])
                     count++;
+
+                
             }
-            if(count > highCount){
-                highCount = count;
-                most = list[i];
-            }else if(count == highCount){
-                most = 0;
-            }
+            
         }
         if(most == 0){
             System.out.println("There is no mode for this list.");

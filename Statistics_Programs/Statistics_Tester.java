@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Statistics_Tester {
     public static void main(String args[]){
         Statistics s1 = new Statistics();
-        int listA[] = {1, 5, 3, 5, 3, 5};
+        int listA[] = {1, 3, 5, 5, 3, 5};
         int listB[] = {1, 2, 3, 4, 5, 6};
         s1.result(listA);
         s1.result2(listA, listB);
