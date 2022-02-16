@@ -11,6 +11,7 @@ public class CSV_Writer {
     private BufferedWriter bWriter;
     
     public CSV_Writer(){
+        //Exception checks to see if it can create the FavoriteNumbers.csv
         try{
             fWriter = new FileWriter("FavoriteNumbers.csv");
         } catch(Exception ex){
@@ -20,13 +21,14 @@ public class CSV_Writer {
 
     public void writeData(){
         bWriter = new BufferedWriter(fWriter);
-
+        //Creates a header for two columns in the FavoriteNumbers.csv
         try{
             bWriter.write("ID " + "," + " Favorite Number \n");
         } catch(Exception ex){
             System.out.println("Error occured: " + ex.toString());
         }
         for(int i=0; i <= 1000; i++){
+            //Writes in the ID number under the ID column and random integers under the Favorite Number column
             try{
                 int idNumber = i;
                 int favoriteNumber = rand.nextInt(1000) + 1;
