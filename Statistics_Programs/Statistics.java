@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 public class Statistics {
 
+    //Converts Arrays into ArrayLists
     public ArrayList<Integer> convert(int[] list){
         ArrayList<Integer> converted = new ArrayList<>();
         for(int i = 0; i < list.length; i++){
@@ -10,6 +11,7 @@ public class Statistics {
         return converted;
     }
     
+    //Returns the mean of the elements in an Array
     public double mean(int[] list){
         double avg = 0;
         int i;
@@ -27,6 +29,7 @@ public class Statistics {
         return avg;
     }
 
+    //Returns the median of the elements in an Array
     public double median(int[] list){
         double middle;
         int arraySize = list.length;
@@ -41,6 +44,7 @@ public class Statistics {
         return middle;
     }
 
+    //Returns the mode of the elements in an Array
     public int mode(int[] list){
         int most = 0, highCount = 0;
         int i, j;
@@ -60,6 +64,7 @@ public class Statistics {
         return most;
     }
 
+    //Returns the standard deviation of the elements in an Array
     public double stdDevi(int[] list){
         double avg = mean(list), deviation = 0;
         int i, temp = 0, sum = 0;
@@ -81,6 +86,7 @@ public class Statistics {
         return deviation;
     }
 
+    //Returns the variance of the elements in the Array
     public double variance(int[] list){
         double avg = mean(list);
         int i, temp = 0, sum = 0;
@@ -101,6 +107,7 @@ public class Statistics {
         return var;
     }
 
+    //Returns the factorial of a number
     public double factorial(double a){
         if(a == 0){
             return 1;
@@ -108,14 +115,17 @@ public class Statistics {
         return a*factorial(a-1);
     }
 
+    //Returns the permutation of two numbers
     public double permutation(double n, double r){
         return (factorial(n)/(factorial(n-r)));
     }
 
+    //Returns the combination of two numbers
     public double combination(double n, double r){
         return factorial(n)/((factorial(r))*(factorial(n-r)));
     }
 
+    //Converts two Arrays to ArrayLists then unions the two ArrayLists and returns the union
     public ArrayList<Integer> union(int[] listA, int[] listB){
         ArrayList<Integer> union = new ArrayList<>();
         ArrayList<Integer> listC = new ArrayList<>();
@@ -124,6 +134,7 @@ public class Statistics {
         listD = convert(listB);
 
         for(int i=0; i < listC.size(); i++){
+            //Checks to see if the element getting added already exists in the union ArrayList
             if(!union.contains(listC.get(i))){
                 union.add(listC.get(i));
             }
@@ -137,6 +148,7 @@ public class Statistics {
         return union;
     }
 
+    //Converts two ARrays to ArrayLists then intersects the two ArrayLists and returns the intersection
     public ArrayList<Integer> intersection(int[] listA, int[] listB){
         ArrayList<Integer> intersect = new ArrayList<>();
         ArrayList<Integer> listC = new ArrayList<>();
@@ -145,7 +157,9 @@ public class Statistics {
         listD = convert(listB);
 
         for(int i=0; i < listC.size(); i++){
+            //Checks to see if element i in listC is in listD
             if(listD.contains(listC.get(i))){
+                //If element i in listC is in listD this checks if it exists in the ArrayList intersect, if it doesn't it adds it
                 if(!intersect.contains(listC.get(i))){
                     intersect.add(listC.get(i));
                 }
@@ -154,6 +168,7 @@ public class Statistics {
         return intersect;
     }
 
+    //Returns the compliment of the Array passed into the method against the preset Array
     public ArrayList<Integer> compliment(int[] list){
         ArrayList<Integer> out = new ArrayList<>();
         ArrayList<Integer> listA = new ArrayList<>();
@@ -168,6 +183,7 @@ public class Statistics {
         return out;
     }
 
+    //Prints all of the method outputs using the two Arrays and two doubles passed in by the tester class
     public void result(int[] listA, int[] listB, double n, double r){
         System.out.println();
         System.out.println("The mean of listA is: " + mean(listA));
