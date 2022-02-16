@@ -7,6 +7,7 @@ public class Monte_Carlo {
     int playerDoor = 0;
     int winDoor = 0;
     
+    //Returns the probability of winning if the player does not change their door
     public double dontChange(double  plays){
         count = 0;
         for(int i = 1; i <= plays; i++){
@@ -21,6 +22,7 @@ public class Monte_Carlo {
         return (count/plays) * 100;
     }
 
+    //Returns the probability of winning if the player does change their door
     public double doChange(double plays){
         count = 0;
         for(int i = 1; i <= plays; i++){
@@ -28,6 +30,7 @@ public class Monte_Carlo {
             winDoor = rand.nextInt(3);
             int wrongDoor = winDoor;
             
+            //Re-assigns wrongDoor a number if it's assigned the same number as winDoor or playerDoor
             while(wrongDoor == winDoor || wrongDoor == playerDoor){
                 wrongDoor = rand.nextInt(3);
             }
@@ -42,6 +45,7 @@ public class Monte_Carlo {
         return (count/plays) * 100;
     }
 
+    //Calls both methods and returns both
     public void run(double plays){
         System.out.println("If the player does not change the door every time out of " + plays + " they will win " + dontChange(plays) + "% of the time.");
         System.out.println("If the player does change the door every time out of " + plays + " they will win " + doChange(plays) + "% of the time.");
