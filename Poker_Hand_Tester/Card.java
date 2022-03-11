@@ -18,7 +18,8 @@ public class Card {
         suit = newSuit;
     }
 
-    public Card(){
-
+    public Card(int nums, String suits){
+        suit = suits;
+        num = nums;
     }
 }

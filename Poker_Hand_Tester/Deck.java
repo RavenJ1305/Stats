@@ -1,30 +1,47 @@
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
 public class Deck {
     
-    public Deck(){
+    ArrayList<Card> orgDeck = new ArrayList<Card>();
 
+    public ArrayList<Card> addToDeck(){
+        for(int i = 0; i < 4; i++){
+            for(int j = 1; j < 14; j++){
+                if(i == 0){
+                    Card newCard = new Card(j, "Clubs");
+                    orgDeck.add(newCard);
+                }
+                else if(i == 1){
+                    Card newCard = new Card(j, "Diamonds");
+                    orgDeck.add(newCard);
+                }
+                else if(i == 2){
+                    Card newCard = new Card(j, "Hearts");
+                    orgDeck.add(newCard);
+                }
+                else{
+                    Card newCard = new Card(j, "Spades");
+                    orgDeck.add(newCard);
+                }
+            }
+        }
+        return orgDeck;
     }
 
-    public ArrayList orgDeck(){
-        ArrayList<Integer> newDeck = new ArrayList<>();
-        for(int i = 0; i <= 52; i++){
-            newDeck.add(i);
-        }
-
-        return newDeck;
+    public void shuffled(){
+        Collections.shuffle(orgDeck);
     }
 
-    public ArrayList shuffled(){
-        ArrayList<Integer> shuffleDeck = new ArrayList<>();
-        Random rand = new Random();
-        int i = 0;
-        int c = 0;
-        if(shuffleDeck.size() < 52){
-            i = rand.nextInt(orgDeck.size()) + 1;
-            c = orgDeck(i);
-            shuffleDeck.add(c);
+    public void print(){
+        for(int i = 0; i < orgDeck.size(); i++){
+            System.out.println(orgDeck.get(i).getNum());
+            System.out.println(orgDeck.get(i).getSuit());
         }
-        return shuffleDeck;
+    }
+
+    public Card drawCard(){
+        Card c = orgDeck.get(0);
+        orgDeck.remove(0);
+        return c;
     }
 }
