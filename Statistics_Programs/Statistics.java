@@ -109,7 +109,7 @@ public class Statistics {
     }
 
     //Returns the factorial of a number
-    public double factorial(double a){
+    public int factorial(int a){
         if(a == 0){
             return 1;
         }
@@ -117,12 +117,12 @@ public class Statistics {
     }
 
     //Returns the permutation of two numbers
-    public double permutation(double n, double r){
+    public int permutation(int n, int r){
         return (factorial(n)/(factorial(n-r)));
     }
 
     //Returns the combination of two numbers
-    public double combination(double n, double r){
+    public int combination(int n, int r){
         return factorial(n)/((factorial(r))*(factorial(n-r)));
     }
 
@@ -184,17 +184,17 @@ public class Statistics {
         return out;
     }
 
-    public double binDistro(double n, double r, double p, double q){
+    public double binDistro(int n, int r, double p){
         double result = 0;
         double comb = combination(n, r);
 
-        result = comb * ((p^r) * (q^(n-r));
+        result = comb * ((Math.pow(p,r)) * (Math.pow((1-p),(n-r))));
 
         return result;
     }
 
     //Prints all of the method outputs using the two Arrays and two doubles passed in by the tester class
-    public void result(int[] listA, int[] listB, double n, double r, double p, double q ){
+    public void result(int[] listA, int[] listB, int n, int r, double p){
         System.out.println();
         System.out.println("The mean of listA is: " + mean(listA));
         System.out.println("The median of listA is: " + median(listA));
@@ -206,6 +206,6 @@ public class Statistics {
         System.out.println("The union of listA and listB is: " + union(listA, listB));
         System.out.println("The intersection of listA and listB is: " + intersection(listA, listB));
         System.out.println("The compliment of listA compared to the preset list is: " + compliment(listA)); 
-        System.out.println("The binomial distribution of n, r, p, and q is: " + binDistro(n, r, p, q));
+        System.out.println("The binomial distribution of n, r, p, and q is: " + binDistro(n, r, p));
     }
 }
