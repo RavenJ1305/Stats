@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.ArrayList;
+
 public class Statistics {
 
     //Converts Arrays into ArrayLists
@@ -183,8 +184,17 @@ public class Statistics {
         return out;
     }
 
+    public double binDistro(double n, double r, double p, double q){
+        double result = 0;
+        double comb = combination(n, r);
+
+        result = comb * ((p^r) * (q^(n-r));
+
+        return result;
+    }
+
     //Prints all of the method outputs using the two Arrays and two doubles passed in by the tester class
-    public void result(int[] listA, int[] listB, double n, double r){
+    public void result(int[] listA, int[] listB, double n, double r, double p, double q ){
         System.out.println();
         System.out.println("The mean of listA is: " + mean(listA));
         System.out.println("The median of listA is: " + median(listA));
@@ -195,6 +205,7 @@ public class Statistics {
         System.out.println("The combinationn of variable n and variable r is: " + combination(n, r));
         System.out.println("The union of listA and listB is: " + union(listA, listB));
         System.out.println("The intersection of listA and listB is: " + intersection(listA, listB));
-        System.out.println("The compliment of listA compared to the preset list is: " + compliment(listA));
+        System.out.println("The compliment of listA compared to the preset list is: " + compliment(listA)); 
+        System.out.println("The binomial distribution of n, r, p, and q is: " + binDistro(n, r, p, q));
     }
 }
