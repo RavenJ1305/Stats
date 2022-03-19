@@ -214,14 +214,17 @@ public class Statistics {
         return result;
     }
 
-    public double cheby(){
+    public double cheby(int upper, int lower, int littleO){
         double result = 0;
+        double avg = (upper + lower) / 2;
+        double k = (upper - avg) / littleO;
 
+        result = 1 - (1 / Math.pow(k,2));
         return result;
     }
 
     //Prints all of the method outputs using the two Arrays and two doubles passed in by the tester class
-    public void result(int[] listA, int[] listB, int n, int r, double p, int setEvents, int event){
+    public void result(int[] listA, int[] listB, int n, int r, double p, int setEvents, int event, int upper, int lower, int littleO){
         System.out.println();
         System.out.println("The mean of listA is: " + mean(listA));
         System.out.println("The median of listA is: " + median(listA));
@@ -236,5 +239,6 @@ public class Statistics {
         System.out.println("The binomial distribution of n, r, p, and q is: " + binDistro(n, r, p));
         System.out.println("The geometric distribution of n, r, and p is: " + geoDistro(n, r, p));
         System.out.println("The poissan distribution with the average event 'setEvents' and the testing event 'event' is: " + poissan(setEvents, event));
+        System.out.println("If you plug upper, lower, and littleO into Chebyshev's theorem the result is: " + cheby(upper, lower, littleO));
     }
 }
