@@ -193,8 +193,35 @@ public class Statistics {
         return result;
     }
 
+    public double geoDistro(int n, int r, double p){
+        double result = 0;
+        result = Math.pow((1-p),(r-1))*p;
+
+        return result;
+    }
+
+    public double hypGeoDistro(){
+        double result = 0;
+
+        return result;
+    }
+
+    public double poissan(int setEvents, int event){
+        double result = 0;
+        double e = 2.718218;
+
+        result = (Math.pow(e,-setEvents)* Math.pow(setEvents,event) / factorial(event));
+        return result;
+    }
+
+    public double cheby(){
+        double result = 0;
+
+        return result;
+    }
+
     //Prints all of the method outputs using the two Arrays and two doubles passed in by the tester class
-    public void result(int[] listA, int[] listB, int n, int r, double p){
+    public void result(int[] listA, int[] listB, int n, int r, double p, int setEvents, int event){
         System.out.println();
         System.out.println("The mean of listA is: " + mean(listA));
         System.out.println("The median of listA is: " + median(listA));
@@ -207,5 +234,7 @@ public class Statistics {
         System.out.println("The intersection of listA and listB is: " + intersection(listA, listB));
         System.out.println("The compliment of listA compared to the preset list is: " + compliment(listA)); 
         System.out.println("The binomial distribution of n, r, p, and q is: " + binDistro(n, r, p));
+        System.out.println("The geometric distribution of n, r, and p is: " + geoDistro(n, r, p));
+        System.out.println("The poissan distribution with the average event 'setEvents' and the testing event 'event' is: " + poissan(setEvents, event));
     }
 }

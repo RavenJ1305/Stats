@@ -7,7 +7,9 @@ public class Statistics_Tester {
         int n = 10;
         int r = 7;
         double p = .8;
+        int setEvents = 1;
+        int event = 2;
         //Passes the Arrays and integers to the result method for the outputs
-        s1.result(listA, listB, n, r, p);
+        s1.result(listA, listB, n, r, p, setEvents, event);
     }
 }
