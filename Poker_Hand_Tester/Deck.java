@@ -4,28 +4,13 @@ public class Deck {
     
     ArrayList<Card> orgDeck = new ArrayList<Card>();
 
-    public ArrayList<Card> addToDeck(){
-        for(int i = 0; i < 4; i++){
-            for(int j = 1; j < 14; j++){
-                if(i == 0){
-                    Card newCard = new Card(j, "Clubs");
-                    orgDeck.add(newCard);
-                }
-                else if(i == 1){
-                    Card newCard = new Card(j, "Diamonds");
-                    orgDeck.add(newCard);
-                }
-                else if(i == 2){
-                    Card newCard = new Card(j, "Hearts");
-                    orgDeck.add(newCard);
-                }
-                else{
-                    Card newCard = new Card(j, "Spades");
-                    orgDeck.add(newCard);
-                }
-            }
+    public Deck(){
+        for(int i = 1; i < 13; i++){
+            orgDeck.add(new Card(i, "Clubs"));
+            orgDeck.add(new Card(i, "Diamonds"));
+            orgDeck.add(new Card(i, "Hearts"));
+            orgDeck.add(new Card(i, "Spades"));
         }
-        return orgDeck;
     }
 
     public void shuffled(){
