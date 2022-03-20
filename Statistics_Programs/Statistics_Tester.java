@@ -12,7 +12,11 @@ public class Statistics_Tester {
         int upper = 49; 
         int lower = 29;
         int littleO = 5;
+        int littleR = 49;
+        int N = 100;
+        int y = 7;
+
         //Passes the Arrays and integers to the result method for the outputs
-        s1.result(listA, listB, n, r, p, setEvents, event, upper, lower, littleO);
+        s1.result(listA, listB, n, r, p, setEvents, event, upper, lower, littleO, littleR, N, y);
     }
 }

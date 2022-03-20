@@ -113,7 +113,7 @@ public class Statistics {
         if(a == 0){
             return 1;
         }
-        return a*factorial(a-1);
+        return (a*factorial(a-1));
     }
 
     //Returns the permutation of two numbers
@@ -193,16 +193,17 @@ public class Statistics {
         return result;
     }
 
-    public double geoDistro(int n, int r, double p){
+    public double geoDistro(int r, double p){
         double result = 0;
         result = Math.pow((1-p),(r-1))*p;
 
         return result;
     }
 
-    public double hypGeoDistro(){
+    public double hypGeoDistro(int n, int littleR, int N, int y){
         double result = 0;
 
+        result = (combination(littleR, y)*combination((N-littleR),n-y))/combination(N, n);
         return result;
     }
 
@@ -224,7 +225,7 @@ public class Statistics {
     }
 
     //Prints all of the method outputs using the two Arrays and two doubles passed in by the tester class
-    public void result(int[] listA, int[] listB, int n, int r, double p, int setEvents, int event, int upper, int lower, int littleO){
+    public void result(int[] listA, int[] listB, int n, int r, double p, int setEvents, int event, int upper, int lower, int littleO, int littleR, int N, int y){
         System.out.println();
         System.out.println("The mean of listA is: " + mean(listA));
         System.out.println("The median of listA is: " + median(listA));
@@ -237,8 +238,10 @@ public class Statistics {
         System.out.println("The intersection of listA and listB is: " + intersection(listA, listB));
         System.out.println("The compliment of listA compared to the preset list is: " + compliment(listA)); 
         System.out.println("The binomial distribution of n, r, p, and q is: " + binDistro(n, r, p));
-        System.out.println("The geometric distribution of n, r, and p is: " + geoDistro(n, r, p));
+        System.out.println("The geometric distribution of r and p is: " + geoDistro(r, p));
+        System.out.println("The hypergeometric distribution of n, littleR, N, and y is: " + hypGeoDistro(n, littleR, N, y));
         System.out.println("The poissan distribution with the average event 'setEvents' and the testing event 'event' is: " + poissan(setEvents, event));
         System.out.println("If you plug upper, lower, and littleO into Chebyshev's theorem the result is: " + cheby(upper, lower, littleO));
+        
     }
 }
