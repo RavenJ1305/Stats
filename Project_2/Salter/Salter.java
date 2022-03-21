@@ -1,17 +1,16 @@
 import java.io.FileWriter;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedWriter;
-import java.io.BufferedReader;
+import java.io.File;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Salter {
     Random rand = new Random();
     private FileWriter fWriter;
     private BufferedWriter bWriter;
-    private BufferedReader bReader;
     
-    public void CSV_Writer(){
+    public Salter(){
         //Exception checks to see if it can create the Salter.csv
         try{
             fWriter = new FileWriter("Salter.csv");
@@ -24,12 +23,12 @@ public class Salter {
         bWriter = new BufferedWriter(fWriter);
         //Creates a header for two columns in the Salter.csv
         try{
-            bWriter.write("X " + "," + " Y \n");
+            bWriter.write("X Value " + "," + " Y Value \n");
         } catch(Exception ex){
             System.out.println("Error occured: " + ex.toString());
         }
-        for(int i=1; i <= 1000; i++){
-            //Writes in the X value under the X column and random integers under the Y column
+        for(int i=0; i <= 1000; i++){
+            //Writes in the X value under the X Value column and random integers under the Y Value column
             try{
                 int xValue = i;
                 int yValue = rand.nextInt(1000) + 1;
@@ -45,25 +44,47 @@ public class Salter {
         }
     }
 
-    public void changeData(){
+    public void changeData(int bound){
+        bWriter = new BufferedWriter(fWriter);
         
+        //Creates a header for two columns in the Salter.csv
         try{
-            bReader = new BufferedReader(new FileReader("Salter.csv"));
-        } catch(Exception ex){
-            System.out.println("Error occured: " + ex.toString());
-        }
-        try{
-            fWriter = new FileWriter("Salter_Changed.csv");
-        } catch(Exception ex){
-            System.out.println("Error occured: " + ex.toString());
-        }
-        
-        try{
-            while(bReader.readLine() != null){
-                
+            File myFile = new File("Salter.csv");
+            Scanner fReader = new Scanner(myFile);
+            //String xHeader = fReader.nextLine();
+            double newX = 0;
+            double newY = 0;
+
+            for(int i=0; i <= 1000; i++){
+                //Writes in the X value under the X column and random integers under the Y column
+                while(fReader.hasNextLine()){
+                    String val = fReader.nextLine();
+                    for(int j = 0; j <= val.length(); j++){
+                        int pos = val.indexOf(',');
+                        int change = pos + 1;
+                        newX = Double.valueOf(val.substring(0, change-1));
+                        newY = Double.valueOf(val.substring(change));
+                        int random = rand.nextInt(2);
+                        if(random == 1){
+                            newY = newY - bound;
+                        }else{
+                            newY = newY + bound;
+                        }
+                        
+                    }
+                    
+                    bWriter.write(newX + "," + newY + "\n");
+                    break;
+                }
             }
-        } catch(IOException ex){
+        } catch(Exception ex){
             System.out.println("Error occured: " + ex.toString());
+        }
+
+        try{
+            bWriter.close();
+        } catch(IOException ex){
+            ex.printStackTrace();
         }
     }
 
