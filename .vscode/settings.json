@@ -1,7 +1,8 @@
 {
     "java.project.sourcePaths": [
         "Statistics_Programs",
+        "Project_2/Poker_Hand_Tester",
         "Project_1",
-        "Poker_Hand_Tester"
+        "Project_2/Salter"
     ]
 }
