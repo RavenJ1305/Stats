@@ -46,6 +46,7 @@ public class Salter {
     }
 
     public void changeData(){
+        
         try{
             bReader = new BufferedReader(new FileReader("Salter.csv"));
         } catch(Exception ex){
