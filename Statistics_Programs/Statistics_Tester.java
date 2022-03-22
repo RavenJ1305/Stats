@@ -16,7 +16,7 @@ public class Statistics_Tester {
         int N = 100;
         int y = 7;
 
-        //Passes the Arrays and integers to the result method for the outputs
+        //Passes the above variables to the result method of the Statistics.java class for the outputs
         s1.result(listA, listB, n, r, p, setEvents, event, upper, lower, littleO, littleR, N, y);
     }
 }

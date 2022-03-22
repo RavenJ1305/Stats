@@ -184,6 +184,7 @@ public class Statistics {
         return out;
     }
 
+    //Returns the Binomial distribution of variables n, r, and p
     public double binDistro(int n, int r, double p){
         double result = 0;
         double comb = combination(n, r);
@@ -193,6 +194,7 @@ public class Statistics {
         return result;
     }
 
+    //Returns the Geometric distribution of variables r and p
     public double geoDistro(int r, double p){
         double result = 0;
         result = Math.pow((1-p),(r-1))*p;
@@ -200,6 +202,7 @@ public class Statistics {
         return result;
     }
 
+    //Returns the Hyper Geometric distribution of variables n, littleR, N, and y
     public double hypGeoDistro(int n, int littleR, int N, int y){
         double result = 0;
 
@@ -207,6 +210,7 @@ public class Statistics {
         return result;
     }
 
+    //Returns the Poissan distribution of the variables setEvents and event
     public double poissan(int setEvents, int event){
         double result = 0;
         double e = 2.718218;
@@ -215,6 +219,7 @@ public class Statistics {
         return result;
     }
 
+    //Returns the output of variables upper, lower, and littleO using Chebyshev's Theorem
     public double cheby(int upper, int lower, int littleO){
         double result = 0;
         double avg = (upper + lower) / 2;
@@ -224,7 +229,7 @@ public class Statistics {
         return result;
     }
 
-    //Prints all of the method outputs using the two Arrays and two doubles passed in by the tester class
+    //Prints all of the method outputs using all of the variables passed in by the Statistics.Tester.java class
     public void result(int[] listA, int[] listB, int n, int r, double p, int setEvents, int event, int upper, int lower, int littleO, int littleR, int N, int y){
         System.out.println();
         System.out.println("The mean of listA is: " + mean(listA));

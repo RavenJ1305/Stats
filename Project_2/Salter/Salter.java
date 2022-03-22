@@ -47,18 +47,20 @@ public class Salter {
     public void changeData(int bound){
         bWriter = new BufferedWriter(fWriter);
         
-        //Creates a header for two columns in the Salter.csv
         try{
-            File myFile = new File("Salter.csv");
-            Scanner fReader = new Scanner(myFile);
-            //String xHeader = fReader.nextLine();
+            File myFile = new File("Salter.csv"); //This variable tells the reader what file to read
+            Scanner fReader = new Scanner(myFile); 
             double newX = 0;
             double newY = 0;
 
-            for(int i=0; i <= 1000; i++){
-                //Writes in the X value under the X column and random integers under the Y column
+            for(int i=0; i <= 1000; i++){ //Loops through the csv file 1001 times
+                
+                /**While there is still data to read in the next row of the CSV this loop will continue to run.
+                 * This loop will read the comma separated values and randomly add or subtract the bound set by the user to 
+                 * the Y value and then write the new value into the CSV.
+                 */
                 while(fReader.hasNextLine()){
-                    String val = fReader.nextLine();
+                    String val = fReader.nextLine(); 
                     for(int j = 0; j <= val.length(); j++){
                         int pos = val.indexOf(',');
                         int change = pos + 1;

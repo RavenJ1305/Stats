@@ -15,6 +15,9 @@ public class Plotter {
         }
     }
 
+    /**This method uses the function y=mx=b, the variables m and b are preset. X is incremented by the for loop and y is determined 
+    * using the function
+    */
     public void writeData(){
         bWriter = new BufferedWriter(fWriter);
         //Creates a header for two columns in the Plotter.csv
@@ -24,7 +27,6 @@ public class Plotter {
             System.out.println("Error occured: " + ex.toString());
         }
         for(int i=0; i <= 1000; i++){
-            //Writes in the X value under the X Value column and random integers under the Favorite Number column
             try{
                 int x = i;
                 double m = .5;

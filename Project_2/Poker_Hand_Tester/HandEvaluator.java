@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class HandEvaluator {
+    //Prints the probabilities of each of the below methods
     public void result(double runs){
         System.out.println("The probability of a pair in a hand of five cards is: " + pairTester(runs) + "%");
         System.out.println("The probability of a three of a kind in a hand of five cards is: " + threeOfKind(runs) + "%");
@@ -12,6 +13,7 @@ public class HandEvaluator {
         System.out.println("The probability of a four of a kind in a hand of five cards is: " + fourOfKind(runs) + "%");
     }
 
+    //Returns the probability of having a pair in a hand of 5 cards
     public double pairTester(double runs){
         double result = 0;
         int counter = 0;
@@ -39,6 +41,7 @@ public class HandEvaluator {
         return result;
     }
 
+    //Returns the probability of having a three of a kind in a hand of 5 cards
     public double threeOfKind(double runs){
         double result = 0;
         int counter = 0;
@@ -72,6 +75,7 @@ public class HandEvaluator {
         return result;
     }
 
+    //Returns the probability of having two pair in a hand of 5 cards
     public double twoPair(double runs){
         double result = 0;
         int counter = 0;
@@ -104,6 +108,7 @@ public class HandEvaluator {
         return result;
     }
 
+    //Returns the probability of having a straight in a hand of 5 cards
     public double straightTester(double runs){
         double result = 0;
         int counter = 0;
@@ -135,6 +140,7 @@ public class HandEvaluator {
         return result;
     }
 
+    //Returns the probability of having a full house in a hand of 5 cards
     public double fullHouseTester(double runs){
         double result = 0;
         int counter = 0;
@@ -165,6 +171,7 @@ public class HandEvaluator {
         return result;
     }
 
+    //Returns the probability of having a flush in a hand of 5 cards
     public double flushTester(double runs){
         double result = 0;
         int counter = 0;
@@ -188,6 +195,7 @@ public class HandEvaluator {
         return result;
     }
 
+    //Returns the probability of having a four of a kind in a hand of 5 cards
     public double fourOfKind(double runs){
         double result = 0;
         int counter = 0;
