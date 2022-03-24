@@ -2,6 +2,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class Smoother {
     Random rand = new Random();
     private FileWriter fWriter;
     private BufferedWriter bWriter;
+    ArrayList<Double> list = new ArrayList<Double>();
     
     public Smoother(){
         //Exception checks to see if it can create the Smoother.csv
@@ -19,7 +21,7 @@ public class Smoother {
         }
     }
 
-    public void writeData(int bound){
+    public void readData(){
         bWriter = new BufferedWriter(fWriter);
         //Creates a header for two columns in the Smoother.csv
         try{
@@ -42,8 +44,14 @@ public class Smoother {
                  * the Y value and then write the new value into the CSV.
                  */
                 while(fReader.hasNextLine()){
-                     
-                    
+                    String currentVal = fReader.nextLine();
+                    for(int j = 0; j <= currentVal.length(); j++){
+                        int pos = currentVal.indexOf(',');
+                        int change = pos + 1;
+                        newX = Double.valueOf(currentVal.substring(0, change-1));
+                        newY = Double.valueOf(currentVal.substring(change));
+                        list.add(newY);
+                    } 
                     
                     bWriter.write(newX + "," + newY + "\n");
                     break;
@@ -57,6 +65,14 @@ public class Smoother {
             bWriter.close();
         } catch(IOException ex){
             ex.printStackTrace();
+        }
+    }
+
+    public void smoothData(ArrayList<Double> list, int bound){
+        
+        
+        for(int i = 0; i <= 1000; i++){
+            
         }
     }
 }
