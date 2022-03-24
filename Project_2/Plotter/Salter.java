@@ -48,7 +48,7 @@ public class Salter {
         bWriter = new BufferedWriter(fWriter);
         
         try{
-            File myFile = new File("Salter.csv"); //This variable tells the reader what file to read
+            File myFile = new File("Plotter.csv"); //This variable tells the reader what file to read
             Scanner fReader = new Scanner(myFile); 
             double newX = 0;
             double newY = 0;
