@@ -31,7 +31,7 @@ public class Smoother {
         }
 
         try{
-            File myFile = new File("/Users/annetteraven/Documents/GitHub/Stats/Project_2/Plotter/Plotter.csv"); //This variable tells the reader what file to read
+            File myFile = new File("Plotter.csv"); //This variable tells the reader what file to read
             Scanner fReader = new Scanner(myFile); 
             String head = fReader.nextLine();
             double newX = 0;
