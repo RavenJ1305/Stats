@@ -1,0 +1,12 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Jack\\Desktop\\Spring 2022 Semester\\Prob and Applied Stats\\commons-math3-3.6.1\\commons-math3-3.6.1.jar",
+        "c:\\Users\\Jack\\Desktop\\Spring 2022 Semester\\Prob and Applied Stats\\commons-math3-3.6.1\\commons-math3-3.6.1-javadoc.jar",
+        "c:\\Users\\Jack\\Desktop\\Spring 2022 Semester\\Prob and Applied Stats\\commons-math3-3.6.1\\commons-math3-3.6.1-sources.jar",
+        "c:\\Users\\Jack\\Desktop\\Spring 2022 Semester\\Prob and Applied Stats\\commons-math3-3.6.1\\commons-math3-3.6.1-tests.jar",
+        "c:\\Users\\Jack\\Desktop\\Spring 2022 Semester\\Prob and Applied Stats\\commons-math3-3.6.1\\commons-math3-3.6.1-test-sources.jar",
+        "c:\\Users\\Jack\\Desktop\\Spring 2022 Semester\\Prob and Applied Stats\\commons-math3-3.6.1\\commons-math3-3.6.1-tools.jar",
+        "c:\\Users\\Jack\\Desktop\\Spring 2022 Semester\\Prob and Applied Stats\\jfreechart-1.0.19\\jfreechart-1.0.19-demo.jar"
+    ]
+}
