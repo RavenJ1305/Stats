@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class Statistics {
@@ -109,21 +110,43 @@ public class Statistics {
     }
 
     //Returns the factorial of a number
-    public int factorial(int a){
+    public BigInteger factorial(int a){
+        long temp = a;
+        BigInteger tempBigInt = BigInteger.valueOf(temp);
+        
         if(a == 0){
-            return 1;
+            return BigInteger.valueOf(1);
         }
-        return (a*factorial(a-1));
+        BigInteger result = (tempBigInt.multiply(factorial(a-1)));
+        return result;
     }
 
     //Returns the permutation of two numbers
-    public int permutation(int n, int r){
-        return (factorial(n)/(factorial(n-r)));
+    public BigInteger permutation(int n, int r){
+        long tempN = n;
+        long tempR = r;
+        BigInteger tempBigN = BigInteger.valueOf(tempN);
+        BigInteger tempBigR = BigInteger.valueOf(tempR);
+        tempBigN = factorial(n);
+        tempBigR = factorial(n-r);
+        BigInteger result = tempBigN.divide(tempBigR);
+
+        return result;
     }
 
     //Returns the combination of two numbers
-    public int combination(int n, int r){
-        return factorial(n)/((factorial(r))*(factorial(n-r)));
+    public BigInteger combination(int n, int r){
+        BigInteger bigInt = new BigInteger("0");
+        long tempN = n;
+        long tempR = r;
+        BigInteger tempBigN = BigInteger.valueOf(tempN);
+        BigInteger tempBigR = BigInteger.valueOf(tempR);
+        tempBigN = factorial(n);
+        tempBigR = factorial(r);
+        BigInteger temp = factorial(n-r);
+    
+        bigInt = tempBigN.divide(tempBigR.multiply(temp)); 
+        return bigInt;
     }
 
     //Converts two Arrays to ArrayLists then unions the two ArrayLists and returns the union
@@ -187,7 +210,7 @@ public class Statistics {
     //Returns the Binomial distribution of variables n, r, and p
     public double binDistro(int n, int r, double p){
         double result = 0;
-        double comb = combination(n, r);
+        double comb = combination(n, r).doubleValue();
 
         result = comb * ((Math.pow(p,r)) * (Math.pow((1-p),(n-r))));
 
@@ -206,7 +229,7 @@ public class Statistics {
     public double hypGeoDistro(int n, int littleR, int N, int y){
         double result = 0;
 
-        result = (combination(littleR, y)*combination((N-littleR),n-y))/combination(N, n);
+        result = (combination(littleR, y).multiply(combination((N-littleR),n-y))).divide(combination(N, n)).doubleValue();
         return result;
     }
 
@@ -215,7 +238,7 @@ public class Statistics {
         double result = 0;
         double e = 2.718218;
 
-        result = (Math.pow(e,-setEvents)* Math.pow(setEvents,event) / factorial(event));
+        result = (Math.pow(e,-setEvents)* Math.pow(setEvents,event) / factorial(event).doubleValue());
         return result;
     }
 
@@ -229,8 +252,22 @@ public class Statistics {
         return result;
     }
 
+    public double uniDistro(int n, int r, int x){
+        double result = 0; 
+        double b = n;
+        double a = r; 
+
+        if(a <= x && x <= b){
+            result = (x-a)/(b-a);
+        }else{
+            result = 0;
+        }
+
+        return result * 100;
+    }
+
     //Prints all of the method outputs using all of the variables passed in by the Statistics.Tester.java class
-    public void result(int[] listA, int[] listB, int n, int r, double p, int setEvents, int event, int upper, int lower, int littleO, int littleR, int N, int y){
+    public void result(int[] listA, int[] listB, int n, int r, double p, int setEvents, int event, int upper, int lower, int littleO, int littleR, int N, int y, int x){
         System.out.println();
         System.out.println("The mean of listA is: " + mean(listA));
         System.out.println("The median of listA is: " + median(listA));
@@ -247,6 +284,6 @@ public class Statistics {
         System.out.println("The hypergeometric distribution of n, littleR, N, and y is: " + hypGeoDistro(n, littleR, N, y));
         System.out.println("The poissan distribution with the average event 'setEvents' and the testing event 'event' is: " + poissan(setEvents, event));
         System.out.println("If you plug upper, lower, and littleO into Chebyshev's theorem the result is: " + cheby(upper, lower, littleO));
-        
+        System.out.println("The uniform distribution of n, r, and x is: " + uniDistro(n, r, x));
     }
 }
