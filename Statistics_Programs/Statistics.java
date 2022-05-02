@@ -172,7 +172,7 @@ public class Statistics {
         return union;
     }
 
-    //Converts two ARrays to ArrayLists then intersects the two ArrayLists and returns the intersection
+    //Converts two Arrays to ArrayLists then intersects the two ArrayLists and returns the intersection
     public ArrayList<Integer> intersection(int[] listA, int[] listB){
         ArrayList<Integer> intersect = new ArrayList<>();
         ArrayList<Integer> listC = new ArrayList<>();
