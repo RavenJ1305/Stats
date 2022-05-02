@@ -296,16 +296,16 @@ public class Dataset {
         System.out.println("The number of games per season in the data set is: " + gamesPerSeason);
         System.out.println();
 
-        //What is the average number of wins per season?
+        //WWhat is the average number of wins per season for the Ravens franchise?
         System.out.println("Average number of wins per season: " + mean(wins));
 
-        //What is the median of the list of wins per season?
+        //What is the median of wins per season for the Ravens franchise?
         System.out.println("Median of wins out of 25 seasons: " + median(wins));
 
-        //What is the mode of the list of wins per season?
+        //What is the mode of the list of wins for the Ravens franchise?
         System.out.println("Mode of wins out of 25 seasons: " + mode(wins));
 
-        //What is the standard deviation of the list of wins per season?
+        //What is the standard deviation of the list of wins per season for the Ravens franchise?
         System.out.println("The standard deviation of the list of wins: " + stdDevi(wins));
 
         //What is the variance of the list of wins per season?
@@ -314,7 +314,7 @@ public class Dataset {
         //How many different ways can you order the Ravens' seasons with more than 10 wins?
         System.out.println("How many ways can the Ravens win 10 regular season games: " + permutation(gamesPerSeason, 10));
 
-        //How many different was can the Ravens win 10 games among 16 games?
+        //How many different ways can the Ravens win 10 games among 16 games?
         System.out.println("How many ways can the Ravens win 10 games among 16 games: " + combination(gamesPerSeason, 10));
 
         //What is the union between the list of wins and its compliment?
