@@ -312,7 +312,7 @@ public class Dataset {
         System.out.println("The variance of the list of wins: " + variance(wins));
 
         //How many different ways can you order the Ravens' seasons with more than 10 wins?
-        System.out.println("How many ways can the Ravens win 10 regular season wins: " + permutation(gamesPerSeason, 10));
+        System.out.println("How many ways can the Ravens win 10 regular season games: " + permutation(gamesPerSeason, 10));
 
         //How many different was can the Ravens win 10 games among 16 games?
         System.out.println("How many ways can the Ravens win 10 games among 16 games: " + combination(gamesPerSeason, 10));
@@ -340,8 +340,8 @@ public class Dataset {
 
         //What are the odds of the Ravens winning between 6 and 12 games per season with a mean of 9 and standard deviation of 2.65?
         System.out.println("The odds of the Ravens winning between 6 and 12 games per season: " + cheby(12, 6, 2.65, mean(wins)));
-        
-        //What are the odds of choosing of choosing the last 3 seasons out of the whole data set?
-        System.out.println("The uniform distribution of n, r, and x is: " + uniDistro(1, 25, 3));
+
+        //What are the odds of choosing the last 3 seasons out of the whole data set?
+        System.out.println("The odds of choosing the last 3 seasons out of the whole data set: " + uniDistro(1, 25, 3));
     }
 }
