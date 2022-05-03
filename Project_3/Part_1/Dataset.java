@@ -246,8 +246,8 @@ public class Dataset {
         return result * 100;
     }
 
-    //Returns the Poissan distribution of the variables setEvents and event
-    public double poissan(int setEvents, int event){
+    //Returns the poisson distribution of the variables setEvents and event
+    public double poisson(int setEvents, int event){
         double result = 0;
         double e = 2.718218;
 
@@ -336,12 +336,12 @@ public class Dataset {
         System.out.println("The odds of picking 2 seasons that have an odd amount of wins that exceeds 10: " + hypGeoDistro(9, 3, numSeasons, 2));
 
         //There are 16 games per season, on average the Ravens win 9 of them. What are the odds the Ravens win more than 8 games per season?
-        System.out.println("The odds the Ravens win more than 8 games per season: " + poissan(gamesPerSeason, 9));
+        System.out.println("The odds the Ravens win more than 8 games per season: " + poisson(gamesPerSeason, 9));
 
         //What are the odds of the Ravens winning between 6 and 12 games per season with a mean of 9 and standard deviation of 2.65?
         System.out.println("The odds of the Ravens winning between 6 and 12 games per season: " + cheby(12, 6, 2.65, mean(wins)));
 
         //What are the odds of choosing the last 3 seasons out of the whole data set?
-        System.out.println("The odds of choosing the last 3 seasons out of the whole data set: " + uniDistro(1, 25, 3));
+        System.out.println("The odds of choosing the last 3 seasons out of the whole data set: " + uniDistro(1, numSeasons, 3));
     }
 }
